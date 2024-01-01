@@ -255,6 +255,23 @@
     <script src="js/js-slick.min.js"></script>
     <!--====== Main js ======-->
     <script src="js/js-main.js"></script>
+	<script>
+document.getElementById('shareButton').addEventListener('click', () => {
+    if (navigator.share) {
+        navigator.share({
+            title: 'Website Title',
+            text: 'Check out this awesome website!',
+            url: window.location.href
+        })
+        .then(() => console.log('Successfully shared'))
+        .catch((error) => console.log('Error sharing:', error));
+    } else {
+        // Fallback for browsers that do not support the Web Share API
+        alert('share feature is not supported in your browser. You can manually share the website link.');
+    }
+});
+		
+	</script>
 
 </body>
 
